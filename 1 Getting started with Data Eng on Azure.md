@@ -53,7 +53,7 @@ Azure, AWS and GCP are the top 3 Cloud Platforms
 
 # Configure Azure CLI
 
-* If you're using a local install, sign in with Azure CLI by using the **az login** command
+* If you are using a local install, sign in with Azure CLI by using the **az login** command
 * If the CLI can open your default browser, it will initiate authorization code flow and open the default browser to load an Azure sign-in page.
 * Sign in with your account credentials in the browser.
 
