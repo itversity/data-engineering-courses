@@ -22,8 +22,8 @@ Here are the various Cloud Platforms
 * Azure
 * AWS
 * GCP
-* Oracle
 * Rackspace
+* Oracle
 * Digital Ocean
 
 Azure, AWS and GCP are the top 3 Cloud Platforms
@@ -44,8 +44,8 @@ Azure, AWS and GCP are the top 3 Cloud Platforms
 
 # Overview of Azure CLI
  
- * Azure CLI is a set of commands used to create and manage Azure resources
- * Azure CLI is available across Azure services and is designed to get your work done quickly with Azure
+ * Azure CLI is a set of commands used to create and manage Azure resources.
+ * Azure CLI is available across Azure services and is designed to get your work done quickly with Azure.
 
 # Setup Azure CLI
 
