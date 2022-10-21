@@ -6,10 +6,26 @@ Azure data lake is also a cloud based storage service which supports big data an
 
 Let us get started with ADLS or Azure Data Lake Storage
 
-* Highly secure with flexible mechanisms.
+* Highly secure with flexible mechanisms
+
+Here are some of the key features of ADLS
+
 * Cost optimisation
+Azure storage offers different access tiers so that you can store your blob data in the most cost-effective manner based on how it's being used
+
+  * Hot tier - An online tier optimized for storing data that is accessed or modified frequently. The hot tier has the highest storage costs
+  * Cool tier - An online tier optimized for storing data that is infrequently accessed or modified. Data in the cool tier should be stored for a minimum of 30 days
+  * Archive tier - An offline tier optimized for storing data that is rarely accessed, and that has flexible latency requirements, on  the order of hours
+
 * Limitless scale 
 * You can review details about ADLS followig [documentation](https://azure.microsoft.com/en-in/products/storage/data-lake-storage/#overview)
+
+Azure storage offers different access tiers so that you can store your blob data in the most cost-effective manner based on how it's being used
+
+* Hot tier - An online tier optimized for storing data that is accessed or modified frequently. The hot tier has the highest storage costs
+* Cool tier - An online tier optimized for storing data that is infrequently accessed or modified. Data in the cool tier should be stored for a minimum of 30 days
+* Archive tier - An offline tier optimized for storing data that is rarely accessed, and that has flexible latency requirements, on the order of hours
+
 
 ## Overview of ADLS Web UI
 
