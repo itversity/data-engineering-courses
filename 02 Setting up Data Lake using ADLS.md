@@ -10,21 +10,15 @@ Let us get started with ADLS or Azure Data Lake Storage
 
 Here are some of the key features of ADLS
 
-* Cost optimisation
+* Cost optimization
 Azure storage offers different access tiers so that you can store your blob data in the most cost-effective manner based on how it's being used
 
   * Hot tier - An online tier optimized for storing data that is accessed or modified frequently. The hot tier has the highest storage costs
   * Cool tier - An online tier optimized for storing data that is infrequently accessed or modified. Data in the cool tier should be stored for a minimum of 30 days
   * Archive tier - An offline tier optimized for storing data that is rarely accessed, and that has flexible latency requirements, on  the order of hours
 
-* Limitless scale 
-* You can review details about ADLS followig [documentation](https://azure.microsoft.com/en-in/products/storage/data-lake-storage/#overview)
-
-Azure storage offers different access tiers so that you can store your blob data in the most cost-effective manner based on how it's being used
-
-* Hot tier - An online tier optimized for storing data that is accessed or modified frequently. The hot tier has the highest storage costs
-* Cool tier - An online tier optimized for storing data that is infrequently accessed or modified. Data in the cool tier should be stored for a minimum of 30 days
-* Archive tier - An offline tier optimized for storing data that is rarely accessed, and that has flexible latency requirements, on the order of hours
+* Limitless scale - Scale a single database to hundreds of terabytes, and enable tens of thousands of users to gain real-time insights at petabyte scale.
+* You can review details about ADLS by following [documentation](https://azure.microsoft.com/en-in/products/storage/data-lake-storage/#overview)
 
 
 ## Overview of ADLS Web UI
@@ -98,17 +92,38 @@ Let me demonstrate how to manage files in `itvcontainer` container.
 |`az storage fs delete -n container-name --account-name storage-account-name`|To remove container|
 |`az storage fs file list -f container-name --account-name storage-account-name`|To list files and folders in container|
 |`az storage fs directory upload -f container-name --account-name storage-account-name -s "data\retail_db" --recursive`|To copy retail_db folder recursively from local file system to container in specified path|
+|`az storage fs directory delete -n retail_db -f <container-name>  --account-name <storage-account>`|To delete retail_db folder recursively from specified path in ADLS|
+
+## Copy Retail Data Set to ADLS using az commands
+
+Take it as an exercise and make sure to copy data/retail_db_json recursively to a retail_db_json folder in your ADLS container.
+
+* Copy the folder recursively to existing container.
+* Review if all the files are successfully copied or not.
 
 
 ## Manage Files in ADLS using Python
 
 Let us see how we can manage files in ADLS using Python as Programming Language.
 
-* We need to first make sure some Azure packages are installed.
-* Install azure-storage-blob Python library using pip.
-* Initialize a client instance with a storage connection string
+* We need to first make sure some Azure Cloud SDK is setup and configured..
+* Install `azure-storage-blob` Python library using pip.
+* We need to make sure the storage module is imported and the client is created.
+* Initialize a client instance with a storage connection string.
+* Using storage client we will be able to manage containers as well as files (blobs) in ADLS using Python.
+
 
 Refer to the Notebook which have few examples related to managing files in ADLS using Python
+
+## Overview of processing data in ADLS using Pandas
+
+Let us see how we can process data in ADLS using Pandas.
+* Pandas is the most popular library used to process as well as analyze the data.
+* We can seamlessly read data from ADLS Files as well as write data to ADLS Files using Pandas.
+* We need to have pandas, fsspec and adlfs installed using pip in the same virtual environment so that Pandas can be used to process data in ALDS Files.
+* At times we might have to install additional libraries to process data using particular format (for eg: pyarrow needs to be installed to work with Parquet).
+
+Refer to the Notebook which have few examples related to processing data in ADLS using Pandas
 
 
 
