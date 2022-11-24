@@ -70,7 +70,6 @@ Here are the details to setup data repository in Azure Cloud Shell.
 
 ## Overview of Data Sets
 Let us get a quick overview about data sets
-
 * Data Sets are part of our GitHub repository.
 * If you have already setup GitHub repository, you should see `data` folder.
 * We will use these data sets as part of different sections or modules in this course.
@@ -78,7 +77,6 @@ Let us get a quick overview about data sets
 ## Manage Files in ADLS using az commands
 
 Let me demonstrate how to manage files in `itvcontainer` container.
-
 * Delete the container, if it exists (we need to empty the folder first).
 * Create the container.
 * Add `data/retail_db` recursively to your cotainer recursively.
