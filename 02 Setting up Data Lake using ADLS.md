@@ -64,9 +64,11 @@ Here are the details to setup data repository in Azure Cloud Shell.
 * Clone our data repository from GitHub.
 * You can use following command to clone the repository.
 
- `git clone https://github.com/dgadiraju/data`
+ ```
+ git clone https://github.com/dgadiraju/data
+ ```
 * You can review the retail files in the data folder by running `find data/retail_db`
-* You can also use `ls -ltr` data to list all the data sets that are available in our GitHub repository.
+* You can also use `ls -ltr data` to list all the data sets that are available in our GitHub repository.
 
 ## Overview of Data Sets
 Let us get a quick overview about data sets
@@ -89,8 +91,8 @@ Let me demonstrate how to manage files in `itvcontainer` container.
 |`az storage fs create -n container-name --account-name storage-account-name`|To create container|
 |`az storage fs delete -n container-name --account-name storage-account-name`|To remove container|
 |`az storage fs file list -f container-name --account-name storage-account-name`|To list files and folders in container|
-|`az storage fs directory upload -f container-name --account-name storage-account-name -s "data\retail_db" --recursive`|To copy retail_db folder recursively from local file system to container in specified path|
-|`az storage fs directory delete -n retail_db -f <container-name>  --account-name <storage-account>`|To delete retail_db folder recursively from specified path in ADLS|
+|`az storage fs directory upload -f container-name --account-name storage-account-name -s "data\retail_db" --recursive`|To copy `retail_db` folder recursively from local file system to container in specified path|
+|`az storage fs directory delete -n retail_db -f <container-name>  --account-name <storage-account>`|To delete `retail_db` folder recursively from specified path in ADLS|
 
 ## Copy Retail Data Set to ADLS using az commands
 
