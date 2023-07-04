@@ -1,4 +1,5 @@
 # Data Processing using Azure Functions
+
 ## Overview of Azure Functions 
 Azure Functions are nothing but serverless functions provided as part of Azure Platform.
 * Azure Functions is a serverless solution that allows you to maintain less infrastructure, write less code and save on costs.
@@ -17,6 +18,7 @@ Here are the instructions to create first Azure function using Python.
 ## Run and Validate Azure Function
 Here are the instructions to run and validate Azure Function.
 * Go to function app for Testing and click on test/run
+
 ## Review File Format Converter Logic using Pandas
 * Source: `landing/retail_db/orders`
 * Source File Format: `CSV`
@@ -54,20 +56,17 @@ for file in os.listdir(f'{input_base_dir}/{ds_name}'):
     os.makedirs(f'{output_base_dir}/{ds_name}', exist_ok=True)
     df.to_parquet(f'{output_base_dir}/{ds_name}/{file}.snappy.parquet')
 ```
+
 ## Deploy Inline Application as Azure Function
 As we have reviewed the core logic, let us make sure to deploy file format converted as Azure Function.
 * Create Function with relevant run time (Python 3.9).
 * Update `requirements.txt` with all the required dependencies.
 * Update the program file with the logic to convert the file format.
 * Update Environment Variables for container names as well as base folder names.
+
 ## Run Inline Application as Azure Function
 As File Format Converter as deployed as Azure Function, let us go through the details of running it. We will also validate to confirm if the Azure Function is working as expected or not.
 * Run the Azure Function by passing Table Name as run time argument.
 * Review the logs to confirm, the Azure Function is executed with out any errors.
 * Review the files in ADLS in the target location.
 * Use Pandas `read_parquet` to see if the data in the converted files can be read into Pandas Data Frame.
-
-
-
-
-
