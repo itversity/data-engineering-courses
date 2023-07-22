@@ -1,3 +1,5 @@
+# Solutions for Exercises on Basic SQL Queries
+
 * Validate Data and Review Data Model Diagram
 * Solution for Exercise 1 to get Customer Order Count
 * Solution for Exercise 2 to get Dormant Customers using Outer Join

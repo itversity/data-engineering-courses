@@ -1,3 +1,5 @@
+# Writing Basic SQL Queries
+
 * Review Data Model Diagram
 * Define Problem Statement for SQL Queries
 * Filtering Data using SQL Queries

@@ -1,3 +1,5 @@
+# Ranking using SQL Queries
+
 * Overview of Ranking in SQL
 * Compute Global Ranks using SQL
 * Compute Ranks based on key using SQL

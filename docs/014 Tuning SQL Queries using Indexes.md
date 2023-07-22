@@ -1,3 +1,5 @@
+# Tuning SQL Queries using Indexes
+
 * Review the Common Application Scenarios for Performance Tuning
 * Write SQL Queries for Customer Orders
 * Performance Testing of SQL Queries using Stored Procedure

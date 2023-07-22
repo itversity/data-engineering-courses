@@ -1,3 +1,5 @@
+# Cumulative Aggregations using SQL
+
 * Introduction to Cumulative Aggregations and Ranking in SQL Queries
 * Overview of CTAS to create tables based on Query Results
 * Create Tables for Cumulative Aggregations and Ranking

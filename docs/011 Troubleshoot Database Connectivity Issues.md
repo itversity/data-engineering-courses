@@ -1,3 +1,5 @@
+# Troubleshoot Database Connectivity Issues
+
 * Introduction to SQL Troubleshooting and Debugging Guide
 * Overview of Database Connectivity Issues
 * Validate and Setup Telnet on Mac or PC

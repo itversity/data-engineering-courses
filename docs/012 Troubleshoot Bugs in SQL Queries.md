@@ -1,3 +1,5 @@
+# Troubleshoot Bugs in SQL Queries
+
 * Overview of Compilation of SQL Queries
 * Troubleshooting Syntax Errors in SQL Queries
 * Troubleshooting Semantec Errors in SQL Queries

@@ -1,3 +1,5 @@
+# Setup Application Tables and Data in Postgres Database
+
 * Overview of Postgres Database Server and pgAdmin
 * Overview of Database Connection Details
 * Overview of Connecting to External Databases using pgAdmin

@@ -1,3 +1,5 @@
+# Setup Tools for Data Engineering Essentials
+
 * Introduction to Setting up Tools for Data Engineering Essentials
 * Setup VS Code on Windows
 * Setup Python 3 on Windows

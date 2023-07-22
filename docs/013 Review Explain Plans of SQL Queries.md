@@ -1,3 +1,5 @@
+# Review Explain Plans of SQL Queries
+
 * Introduction to Performance Tuning of SQL Queries
 * Overview of SQL Compilation Process and Explain Plans
 * Generate Explain Plans for SQL Queries

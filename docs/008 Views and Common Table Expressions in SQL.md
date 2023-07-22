@@ -1,3 +1,5 @@
+# Views and Common Table Expressions in SQL
+
 * Overview of Database Views
 * Overview of Common Table Expressions or CTEs
 * Outer Join with Additional Conditions in SQL Queries
