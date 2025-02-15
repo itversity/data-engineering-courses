@@ -83,15 +83,15 @@ SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY);
 
 ```sql
 EXPLAIN ANALYZE
-SELECT c.customer_id, c.name, o.order_date, o.total_amount
+SELECT c.customer_id, c.first_name, c.last_name, o.order_date, o.total_amount
 FROM customers c
 JOIN orders o ON c.customer_id = o.customer_id
-WHERE c.status = 'ACTIVE'
+WHERE c.segment = 'Consumer'
 AND o.order_date > '2025-01-01';
 
 -- Possible Plan Output:
 Seq Scan on customers c (cost=0.00..1000.00 ...)
-   Filter: (status = 'ACTIVE')
+   Filter: (segment = 'Consumer')
 
 Index Scan using orders_order_date_idx on orders o (cost=0.00..500.00 ...)
    Index Cond: (order_date > '2025-01-01'::date)

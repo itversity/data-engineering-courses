@@ -48,30 +48,51 @@
 # Navigate to console.cloud.google.com
 # Create new project or select existing
 # Enable Cloud SQL Admin API
+# Login to GCP
+gcloud auth login
+
+# Set project
+gcloud config set project YOUR_PROJECT_ID
+
+# Enable Cloud SQL Admin API
+gcloud services enable sqladmin.googleapis.com
 ```
 
 ### 3.2 Instance Creation
-```sql
--- Instance Configuration
-Instance ID: my-postgres-instance
-Region: us-central1
-Machine Type: db-f1-micro (dev/test)
-Storage: 10GB with auto-increase
+```bash
+# Instance Configuration
+# Instance ID: my-postgres-instance
+# Region: us-central1
+# Machine Type: db-f1-micro (dev/test)
+# Storage: 10GB with auto-increase
+
+# Create PostgreSQL instance
+gcloud sql instances create my-postgres-instance \
+    --database-version=POSTGRES_15 \
+    --cpu=1 \
+    --memory=3840MB \
+    --region=us-central1 \
+    --storage-size=10GB \
+    --storage-type=SSD \
+    --storage-auto-increase
+
+# Set password
+gcloud sql users set-password postgres \
+    --instance=my-postgres-instance \
+    --password='YOUR_NEW_PASSWORD'
 ```
 
 ### 3.3 Network Configuration
 ```bash
-# Public IP Setup
+# Configure public IP
 gcloud sql instances patch my-postgres-instance \
-    --assign-ip
-
-# Private IP Setup (Production)
-gcloud sql instances patch my-postgres-instance \
-    --network=VPC_NETWORK_NAME \
-    --require-ssl
+    --assign-ip \
+    --authorized-networks=0.0.0.0/0 \
+    --no-require-ssl
 ```
 
 ### 3.4 Connection Methods
+There are multiple ways to connect to the database. We will use psql in this workshop. You can also use other tools like pgAdmin, DBeaver, etc. To use psql, you need to have it installed on your machine.
 
 **Cloud Shell:**
 ```bash
@@ -81,7 +102,8 @@ gcloud sql connect my-postgres-instance --user=postgres
 **Local psql:**
 ```bash
 psql --host=<PUBLIC_IP> --port=5432 \
-     --username=postgres --dbname=postgres
+     --username=postgres \
+     --dbname=postgres
 ```
 
 **Connection String:**
@@ -124,6 +146,15 @@ ON sales(sale_date);
 SELECT schemaname, tablename, indexname, idx_scan
 FROM pg_stat_user_indexes
 ORDER BY idx_scan DESC;
+```
+
+### 4.4. Add Additional Tables
+```sql
+-- Create tables
+\i setup/01_create_tables.sql
+
+-- Load data
+\i setup/02_load_data.sql
 ```
 
 ## 5. Best Practices

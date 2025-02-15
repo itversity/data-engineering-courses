@@ -27,7 +27,13 @@ gcloud sql instances create my-postgres-instance \
 # Configure public IP
 gcloud sql instances patch my-postgres-instance \
     --assign-ip \
-    --require-ssl
+    --authorized-networks=0.0.0.0/0 \
+    --no-require-ssl
+
+# Set password
+gcloud sql users set-password postgres \
+    --instance=my-postgres-instance \
+    --password='YOUR_NEW_PASSWORD'
 ```
 
 ## 3. Database Connection
