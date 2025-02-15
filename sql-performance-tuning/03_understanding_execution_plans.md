@@ -81,6 +81,22 @@ SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY);
 
 ## 1.5 Practical Example
 
+### Scenario 1: No Index Usage
+```sql
+EXPLAIN ANALYZE
+SELECT customer_id, first_name, last_name, segment
+FROM customers
+WHERE segment = 'Consumer';
+
+-- Possible Plan Output:
+--  Seq Scan on customers  (cost=0.00..27.50 rows=250 width=33) (actual time=0.012..0.196 rows=250 loops=1)
+--    Filter: ((segment)::text = 'Consumer'::text)
+--    Rows Removed by Filter: 750
+--  Planning Time: 0.283 ms
+```
+This is a simple query that is performing a sequential scan on the customers table and filtering the rows based on the segment column. Since there is no index on the segment column, the query is performing a full table scan.
+
+### Scenario 2: Index Usage
 ```sql
 EXPLAIN ANALYZE
 SELECT c.customer_id, c.first_name, c.last_name, o.order_date, o.total_amount
@@ -90,17 +106,23 @@ WHERE c.segment = 'Consumer'
 AND o.order_date > '2025-01-01';
 
 -- Possible Plan Output:
-Seq Scan on customers c (cost=0.00..1000.00 ...)
-   Filter: (segment = 'Consumer')
+-- Nested Loop  (cost=0.56..16.66 rows=1 width=36) (actual time=0.005..
+-- 0.006 rows=0 loops=1)
+--    ->  Index Scan using idx_orders_date on orders o  (cost=0.29..8.30
+--  rows=1 width=18) (actual time=0.004..0.005 rows=0 loops=1)
+--          Index Cond: (order_date > '2025-01-01 00:00:00'::timestamp without time zone)
+--    ->  Index Scan using customers_pkey on customers c  (cost=0.28..8.29 rows=1 width=22) (never executed)
+--          Index Cond: (customer_id = o.customer_id)
+--          Filter: ((segment)::text = 'Consumer'::text)
 
-Index Scan using orders_order_date_idx on orders o (cost=0.00..500.00 ...)
-   Index Cond: (order_date > '2025-01-01'::date)
 ```
+This query is performing a nested loop join on the customers and orders tables. The orders table uses an index on the order_date column and the customers table uses a sequential scan.
 
 Key Observations:
 - Orders table uses index on order_date
 - Customers table uses sequential scan
-- Potential optimization: Add index on status if selective enough
+- Potential optimization: Add index on `segment` column of customers table if selective enough
+- However, if the segment column is dense and not frequently used in WHERE clause, it may not be beneficial to add an index on it. It might end up being a waste of space and time and also impact the performance of the insert operations.
 
 ## 1.6 Tips for Getting the Most Out of Execution Plans
 

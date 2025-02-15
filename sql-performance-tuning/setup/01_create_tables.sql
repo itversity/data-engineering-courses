@@ -90,7 +90,6 @@ CREATE TABLE product_categories (
 -- Create indexes
 CREATE INDEX idx_customers_email ON customers(email);
 CREATE INDEX idx_customers_country ON customers(country);
-CREATE INDEX idx_customers_segment ON customers(segment);
 
 CREATE INDEX idx_products_category ON products(category);
 CREATE INDEX idx_products_supplier ON products(supplier_id);
