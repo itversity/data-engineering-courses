@@ -19,39 +19,50 @@ A foreign key (FK) enforces a relationship between two tables — usually a chil
 
 Imagine you have two tables, orders (child) and customers (parent):
 
-```sql
--- Parent table
-CREATE TABLE customers (
-    customer_id INT PRIMARY KEY,
-    name        VARCHAR(100),
-    status      VARCHAR(50)
-);
-
--- Child table
-CREATE TABLE orders (
-    order_id   INT PRIMARY KEY,
-    order_date DATE,
-    customer_id INT,
-    amount     DECIMAL(10,2),
-    CONSTRAINT fk_customer
-      FOREIGN KEY (customer_id)
-      REFERENCES customers(customer_id)
-);
-```
-
 Foreign Key: `orders.customer_id → customers.customer_id`
 
-If queries often look like this:
+#### Drop the index
 ```sql
-SELECT o.order_id, o.order_date, o.amount, c.name
+DROP INDEX idx_orders_customer ON orders;
+```
+
+#### Validate the query plan
+This query will perform a sequential scan on the orders table as there is no index on the customer_id column (in orders table).
+
+```sql
+SELECT c.customer_id, c.first_name, c.last_name, o.order_id, o.order_date, o.total_amount
 FROM orders o
 JOIN customers c ON o.customer_id = c.customer_id
-WHERE c.status = 'ACTIVE';
+WHERE c.customer_id = 1;
+
+EXPLAIN ANALYZE
+SELECT c.customer_id, c.first_name, c.last_name, o.order_id, o.order_date, o.total_amount
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id
+WHERE c.customer_id = 1;
 ```
+
+If queries often look like this, then adding an index on `orders(customer_id)` helps the optimizer quickly locate rows when joining or filtering by customer_id.
 
 Adding an index on `orders(customer_id)` helps the optimizer quickly locate rows when joining or filtering by customer_id.
 
 Additionally, if your application frequently deletes customers, an indexed FK in orders can reduce scanning overhead and locking when checking for referencing rows.
+
+#### Add the index
+```sql
+CREATE INDEX idx_orders_customer ON orders(customer_id);
+```
+
+#### Validate the query plan
+This query will perform a nested loop join on the orders and customers tables as there is an index on the customer_id column (in orders table).
+
+```sql
+EXPLAIN ANALYZE
+SELECT c.customer_id, c.first_name, c.last_name, o.order_id, o.order_date, o.total_amount
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id
+WHERE c.customer_id = 1;
+```
 
 ## 2.3 Best Practices & Considerations
 
