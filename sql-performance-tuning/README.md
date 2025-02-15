@@ -6,6 +6,10 @@ This workshop is designed to be run on Google Cloud SQL and the material is prov
 
 You can find the material for the workshop in the [sql-performance-tuning](https://github.com/itversity/data-engineering-courses/tree/main/sql-performance-tuning) folder. Each file is a markdown file that you can read online or download and open in your local machine.
 
+I would recommend you to go through the material in the order they are presented. Also, if you are going through the video version of the material, I would recommend you to pause the video and try the exercises on your own before resuming the video.
+
+You can use this material as a reference and try the exercises on your own as well as a cheat sheet for your future reference especially when you are working on a new project or preparing for interviews.
+
 ## Prerequisites
 
 - PostgreSQL 12+ installed
