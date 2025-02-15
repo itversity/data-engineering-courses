@@ -24,11 +24,12 @@ The choice between using JOINs or SUBQUERIEs can significantly impact query perf
 
 **Subquery Approach (Less Efficient):**
 ```sql
+EXPLAIN ANALYZE
 SELECT first_name, last_name
-FROM sales_reps_data
+FROM sales_reps
 WHERE rep_id IN (
     SELECT sale_rep_id
-    FROM toyota_sales_data
+    FROM toyota_sales
     WHERE sale_amount > 30000
 );
 ```
@@ -39,9 +40,10 @@ WHERE rep_id IN (
 
 **Join Approach (More Efficient):**
 ```sql
-SELECT DISTINCT sr.first_name, sr.last_name
-FROM sales_reps_data sr
-INNER JOIN toyota_sales_data ts 
+EXPLAIN ANALYZE
+SELECT sr.first_name, sr.last_name
+FROM sales_reps sr
+INNER JOIN toyota_sales ts 
     ON sr.rep_id = ts.sale_rep_id
 WHERE ts.sale_amount > 30000;
 ```
