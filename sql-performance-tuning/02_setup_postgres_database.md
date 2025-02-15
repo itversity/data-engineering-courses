@@ -114,6 +114,7 @@ postgresql://postgres:password@<PUBLIC_IP>:5432/postgres
 ## 4. Performance Tuning Setup
 
 ### 4.1 Basic Configuration
+The following are the basic settings that you can adjust to improve the performance of your database. These settings are not the best settings for production but they are good enough for this workshop. 
 ```sql
 -- Check current settings
 SHOW max_connections;
@@ -126,6 +127,8 @@ ALTER SYSTEM SET work_mem = '16MB';
 ```
 
 ### 4.2 Monitoring Setup
+The following commands help monitor database performance by tracking query statistics.
+
 ```sql
 -- Enable query statistics
 CREATE EXTENSION pg_stat_statements;
@@ -137,7 +140,15 @@ ORDER BY total_time DESC;
 ```
 
 ### 4.3 Index Management
+The following commands help monitor index usage and create indexes for common queries.
 ```sql
+-- Create sample table
+CREATE TABLE sales (
+    sale_id SERIAL PRIMARY KEY,
+    sale_date DATE,
+    amount DECIMAL(10,2)
+);
+
 -- Create indexes for common queries
 CREATE INDEX idx_sales_date 
 ON sales(sale_date);
@@ -149,6 +160,8 @@ ORDER BY idx_scan DESC;
 ```
 
 ### 4.4. Add Additional Tables
+The following commands help create additional tables and load data into them. The scripts are available in the [setup](https://github.com/itversity/data-engineering-courses/tree/main/sql-performance-tuning/setup) folder.
+
 ```sql
 -- Create tables
 \i setup/01_create_tables.sql
@@ -166,6 +179,7 @@ ORDER BY idx_scan DESC;
 - Regular security updates
 
 ### 5.2 Backup Strategy
+The following commands help configure automated backups and enable point-in-time recovery. These are not relevant for this workshop.
 ```sql
 -- Check backup settings
 SELECT * FROM pg_stat_archiver;
@@ -178,6 +192,7 @@ SELECT * FROM pg_stat_archiver;
 ```
 
 ### 5.3 Monitoring
+The following commands help monitor database performance by tracking active queries and table statistics.
 ```sql
 -- Check active queries
 SELECT pid, query, state
@@ -192,6 +207,7 @@ FROM pg_stat_user_tables;
 ## 6. Common Operations
 
 ### 6.1 Database Creation
+The following commands help create a new database and a sample table. These are already done in the setup section.
 ```sql
 CREATE DATABASE performance_tuning;
 \c performance_tuning
@@ -205,6 +221,7 @@ CREATE TABLE sales (
 ```
 
 ### 6.2 User Management
+The following commands help create a new user and grant necessary permissions. These are not relevant for this workshop.
 ```sql
 -- Create application user
 CREATE USER app_user WITH PASSWORD 'secure_password';
@@ -213,6 +230,7 @@ GRANT USAGE ON SCHEMA public TO app_user;
 ```
 
 ### 6.3 Maintenance
+The following commands help perform regular maintenance tasks like vacuuming and reindexing. These are not relevant for this workshop.
 ```sql
 -- Regular maintenance
 VACUUM ANALYZE;
@@ -220,6 +238,7 @@ REINDEX DATABASE performance_tuning;
 ```
 
 ## 7. Troubleshooting
+The following are the common issues that you may face and how to troubleshoot them and not necessarily related to performance tuning.
 
 ### Common Issues
 1. **Connection Problems**

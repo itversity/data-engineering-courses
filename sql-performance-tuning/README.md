@@ -2,6 +2,10 @@
 
 This workshop contains practical examples and exercises for SQL performance tuning across different scenarios. The material is designed for data engineers, database administrators, and developers who want to optimize their SQL queries and database performance.
 
+This workshop is designed to be run on Google Cloud SQL and the material is provided under the GitHub repository created for our [Data Engineering Courses](https://github.com/itversity/data-engineering-courses). 
+
+You can find the material for the workshop in the [sql-performance-tuning](https://github.com/itversity/data-engineering-courses/tree/main/sql-performance-tuning) folder. Each file is a markdown file that you can read online or download and open in your local machine.
+
 ## Prerequisites
 
 - PostgreSQL 12+ installed
