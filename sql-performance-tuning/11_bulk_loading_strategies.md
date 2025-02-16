@@ -7,6 +7,7 @@ Efficient bulk data loading is crucial for database performance, especially when
 ## Key Optimization Techniques
 
 ### 1. Transaction Management
+Reduce the number of transactions (commits) by batching the data into a single transaction.
 ```sql
 -- Inefficient (Auto-commit)
 INSERT INTO sales_data VALUES (...);
@@ -14,8 +15,9 @@ INSERT INTO sales_data VALUES (...);
 
 -- Optimized (Single transaction)
 BEGIN;
-INSERT INTO sales_data VALUES (...);
-INSERT INTO sales_data VALUES (...);
+INSERT INTO sales_data VALUES 
+    (...),
+    (...);
 COMMIT;
 ```
 

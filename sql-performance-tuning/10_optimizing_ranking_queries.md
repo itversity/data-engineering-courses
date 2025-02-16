@@ -14,7 +14,7 @@ SELECT *
 FROM (
     SELECT *, 
            ROW_NUMBER() OVER (ORDER BY sale_amount DESC) AS row_num
-    FROM toyota_sales_data
+    FROM toyota_sales
 ) sub
 WHERE row_num <= 5;
 ```
@@ -26,7 +26,7 @@ WHERE row_num <= 5;
 **Optimized Approach:**
 ```sql
 SELECT *
-FROM toyota_sales_data
+FROM toyota_sales
 ORDER BY sale_amount DESC
 LIMIT 5;
 ```
@@ -41,10 +41,10 @@ LIMIT 5;
 ```sql
 SELECT t1.*, 
        (SELECT COUNT(*) 
-        FROM toyota_sales_data t2 
+        FROM toyota_sales t2 
         WHERE t2.car_model = t1.car_model 
           AND t2.sale_amount >= t1.sale_amount) as rank
-FROM toyota_sales_data t1;
+FROM toyota_sales t1;
 ```
 
 **Optimized Approach:**
@@ -54,8 +54,8 @@ SELECT first_name, last_name, car_model, sale_amount,
            PARTITION BY car_model 
            ORDER BY sale_amount DESC
        ) AS rank
-FROM sales_reps_data sr
-JOIN toyota_sales_data ts ON sr.rep_id = ts.sale_rep_id
+FROM toyota_sales_reps sr
+JOIN toyota_sales ts ON sr.rep_id = ts.sale_rep_id
 WHERE ts.sale_amount > 23000;
 ```
 **Benefits:**
@@ -69,8 +69,8 @@ WHERE ts.sale_amount > 23000;
 ```sql
 SELECT a.*, 
        COUNT(b.sale_amount) as rank
-FROM toyota_sales_data a
-LEFT JOIN toyota_sales_data b 
+FROM toyota_sales a
+LEFT JOIN toyota_sales b 
     ON a.car_model = b.car_model 
     AND b.sale_amount >= a.sale_amount
 GROUP BY a.sale_id, a.sale_amount;
@@ -87,7 +87,7 @@ SELECT *,
            PARTITION BY car_model 
            ORDER BY sale_amount DESC
        ) as rank
-FROM toyota_sales_data;
+FROM toyota_sales;
 ```
 **Benefits:**
 - Single table scan
@@ -100,7 +100,7 @@ FROM toyota_sales_data;
 ```sql
 -- Create index for common ranking patterns
 CREATE INDEX idx_sales_model_amount 
-ON toyota_sales_data (car_model, sale_amount DESC);
+ON toyota_sales (car_model, sale_amount DESC);
 ```
 
 ### 2. Materialized Views
@@ -112,7 +112,7 @@ SELECT car_model,
            PARTITION BY car_model 
            ORDER BY sale_amount DESC
        ) as rank
-FROM toyota_sales_data;
+FROM toyota_sales;
 ```
 
 ### 3. Incremental Updates

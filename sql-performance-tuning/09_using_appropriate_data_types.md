@@ -80,14 +80,14 @@ CREATE TABLE events (
 ```sql
 -- Poor Performance (implicit conversion)
 SELECT sr.first_name, sr.last_name, ts.car_model
-FROM sales_reps_data sr
-INNER JOIN toyota_sales_data ts 
+FROM toyota_sales_reps sr
+INNER JOIN toyota_sales ts 
     ON sr.rep_id::VARCHAR = ts.sale_rep_id;
 
--- Optimized
+-- Optimized (as both columns are of the same data type)
 SELECT sr.first_name, sr.last_name, ts.car_model
-FROM sales_reps_data sr
-INNER JOIN toyota_sales_data ts 
+FROM toyota_sales_reps sr
+INNER JOIN toyota_sales ts 
     ON sr.rep_id = ts.sale_rep_id;
 ```
 
