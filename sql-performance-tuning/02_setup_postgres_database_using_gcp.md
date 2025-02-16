@@ -141,6 +141,12 @@ SELECT relname, seq_scan, idx_scan FROM pg_stat_user_tables;
 ```sh
 CREATE DATABASE performance_tuning;
 \c performance_tuning
+
+CREATE TABLE sales (
+    sale_id SERIAL PRIMARY KEY,
+    sale_date DATE,
+    amount DECIMAL(10,2)
+);
 ```
 
 ### 6.2 User Management
