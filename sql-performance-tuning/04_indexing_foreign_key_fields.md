@@ -4,6 +4,7 @@
 
 A foreign key (FK) enforces a relationship between two tables — usually a child table referencing a primary key or unique key in a parent table. When queries frequently join these two tables (or filter on the foreign key column in the child table), indexing that FK column can offer several benefits:
 
+
 ### a. Faster JOIN Operations
 - If your application regularly joins a child table (containing the FK) to its parent table, an index on the FK column allows quick lookups and avoids scanning the entire child table.
 

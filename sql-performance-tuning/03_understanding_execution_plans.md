@@ -151,6 +151,3 @@ Execution plans serve as your "MRI scan" for SQL queries: they show exactly wher
 - Optimize query performance
 
 The concepts learned are universal across major RDBMS platforms, making execution plan analysis a fundamental skill in SQL Performance Tuning.
-
-
-
