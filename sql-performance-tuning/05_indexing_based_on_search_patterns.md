@@ -1,8 +1,11 @@
-# Scenario 3: Indexing Based on Search Patterns (SARGability)
+# SQL Performance Tuning Scenario #3: Indexing Based on Search Patterns (SARGability)
 
-## Setup Toyota Sales Data
+Ensuring queries are **SARGable** (Search ARGument Able) is key to optimizing SQL performance. This guide explains how to structure search predicates so that indexes are effectively utilized, reducing full table scans and improving query efficiency.
 
-### Create the tables
+## Toyota Sales Data Setup
+For this scenario, we use a sample **Toyota sales dataset** with the following tables:
+
+### Table: `toyota_sales_reps`
 ```sql
 CREATE TABLE toyota_sales_reps (
     rep_id SERIAL PRIMARY KEY,
@@ -14,7 +17,10 @@ CREATE TABLE toyota_sales_reps (
     region VARCHAR(50),
     status VARCHAR(50)
 );
+```
 
+### Table: `toyota_sales`
+```sql
 CREATE TABLE toyota_sales (
     sale_id SERIAL PRIMARY KEY,
     sale_rep_id INT,
@@ -22,121 +28,122 @@ CREATE TABLE toyota_sales (
     car_model VARCHAR(100),
     sale_amount DECIMAL(10,2),
     commission_pct DECIMAL(5,2),
-    sale_status VARCHAR(50)
+    sale_status VARCHAR(50),
+    FOREIGN KEY (sale_rep_id) REFERENCES toyota_sales_reps(rep_id)
 );
-
--- Add foreign key constraint
-ALTER TABLE toyota_sales 
-   ADD CONSTRAINT fk_sales_reps 
-   FOREIGN KEY (sale_rep_id) 
-   REFERENCES toyota_sales_reps(rep_id);
 ```
 
-### Load the data
-Copy the data from `toyota_sales_data.csv` and `sales_reps.csv` into the tables.
-
+### Load Data from CSV
 ```sql
-\COPY toyota_sales_reps FROM 'data/sales_reps_data.csv' WITH (FORMAT csv, HEADER true);
-\COPY toyota_sales FROM 'data/toyota_october_2024_sales_data.csv' WITH (FORMAT csv, HEADER true);
-\COPY toyota_sales FROM 'data/toyota_november_2024_sales_data.csv' WITH (FORMAT csv, HEADER true);
-\COPY toyota_sales FROM 'data/toyota_december_2024_sales_data.csv' WITH (FORMAT csv, HEADER true);
+\COPY toyota_sales_reps FROM 'data/toyota_sales/sales_reps/sales_reps_data.csv' WITH (FORMAT csv, HEADER true);
+\COPY toyota_sales FROM 'data/toyota_sales/sales/toyota_october_2024_sales_data.csv' WITH (FORMAT csv, HEADER true);
+\COPY toyota_sales FROM 'data/toyota_sales/sales/toyota_november_2024_sales_data.csv' WITH (FORMAT csv, HEADER true);
+\COPY toyota_sales FROM 'data/toyota_sales/sales/toyota_december_2024_sales_data.csv' WITH (FORMAT csv, HEADER true);
+
+SELECT COUNT(*) FROM toyota_sales_reps;
+SELECT COUNT(*) FROM toyota_sales;
 ```
 
 ## What is SARGability?
+**SARGability** refers to **writing queries so that search predicates can efficiently use indexes.** SARGable queries allow the database optimizer to perform an **index seek** instead of a **full table scan**, improving performance.
 
-SARGable (Search ARGument able) refers to queries that can effectively use indexes. A query is SARGable when predicates in the WHERE clause can utilize indexes without transforming the indexed columns.
+### Why SARGability Matters
+1. **Efficient Index Utilization** → The database can quickly narrow down results.
+2. **Performance Gains** → Fewer rows are scanned, reducing CPU and I/O usage.
+3. **Scalability** → Index-based queries scale well as data grows.
 
-## Common Non-SARGable vs SARGable Patterns
+## Writing SARGable Queries
 
-### 1. String Comparisons
+### 1. Avoid Wrapping Indexed Columns in Functions
+❌ **Non-SARGable Query:**
+```sql
+EXPLAIN ANALYZE
+SELECT * FROM toyota_sales WHERE LOWER(sale_status) = 'pending';
+```
+🔴 Problem: The function `LOWER(sale_status)` prevents index usage.
 
-**Non-SARGable:**
+✅ **SARGable Query:**
 ```sql
 CREATE INDEX idx_sale_status ON toyota_sales(sale_status);
 
 EXPLAIN ANALYZE
-SELECT count(*)
-FROM toyota_sales
-WHERE LOWER(sale_status) = 'pending';
+SELECT * FROM toyota_sales WHERE sale_status = 'Pending';
 ```
-- Problem: Function `LOWER()` prevents index usage
-- Forces full table scan
+✅ **Fix:** Direct comparison allows the index to be used efficiently.
 
-**SARGable:**
+### 2. Avoid Leading Wildcards in Pattern Matching
+❌ **Non-SARGable Query:**
 ```sql
 EXPLAIN ANALYZE
-SELECT *
-FROM toyota_sales
-WHERE sale_status = 'Pending';
+SELECT sale_id, car_model FROM toyota_sales WHERE car_model LIKE '%Corolla%';
 ```
-- Direct comparison allows index usage
-- Better performance
+🔴 Problem: Leading `%` prevents index usage, causing a **full table scan** or **full index scan** with a high cost.
 
-### 2. Pattern Matching (LIKE)
-The results might be different if the index is used. In Oracle, the index is used for the SARGable query. In PostgreSQL, the index is not used.
-
-**Non-SARGable:**
+✅ **SARGable Query:**
 ```sql
 CREATE INDEX idx_car_model ON toyota_sales(car_model);
 
 EXPLAIN ANALYZE
-SELECT sale_id, car_model, sale_amount
-FROM toyota_sales
-WHERE car_model LIKE '%Corolla%';
+SELECT sale_id, car_model FROM toyota_sales WHERE car_model LIKE 'Corolla%';
 ```
-- Problem: Leading wildcard prevents efficient index usage
-- Results in full index scan
+✅ **Fix:** Use a trailing wildcard (`LIKE 'Corolla%'`) to allow index seeks.
 
-**SARGable:**
+### 3. Use Direct Comparisons Instead of Calculations on Columns
+❌ **Non-SARGable Query:**
 ```sql
 EXPLAIN ANALYZE
-SELECT sale_id, car_model, sale_amount
-FROM toyota_sales
-WHERE car_model LIKE 'Corolla%';
+SELECT * FROM toyota_sales WHERE sale_date + INTERVAL '1 day' > '2025-01-01';
 ```
-- No leading wildcard allows index seek
-- More efficient for large datasets
+🔴 Problem: The calculation on `sale_date` makes the index unusable.
+
+✅ **SARGable Query:**
+```sql
+EXPLAIN ANALYZE
+SELECT * FROM toyota_sales WHERE sale_date > '2024-12-31';
+```
+✅ **Fix:** Move transformations to the constant side of the comparison.
 
 ## Key Principles for SARGable Queries
+✅ **Avoid Functions on Indexed Columns**
+- Move transformations to the **constant** side of comparisons.
 
-1. **Avoid Functions on Indexed Columns**
-   - Don't wrap indexed columns in functions
-   - Move transformations to the constant side
+✅ **Pattern Matching Best Practices**
+- Avoid leading wildcards (`'%search%'`), prefer trailing ones (`'search%'`).
+- Consider specialized indexes like **full-text search** for complex patterns.
 
-2. **Pattern Matching Best Practices**
-   - Avoid leading wildcards when possible
-   - Consider specialized indexes for text search
+✅ **Date/Time Handling**
+- Compare **dates directly** instead of applying functions (`YEAR(sale_date) = 2025` → ❌).
 
-3. **Date/Time Handling**
-   - Use proper date comparisons
-   - Avoid functions that transform date columns
+✅ **Monitor Execution Plans**
+- Use `EXPLAIN ANALYZE` to check if queries are **index-seek friendly**.
+- Watch for implicit type conversions affecting SARGability.
 
 ## Performance Impact
+❌ **Non-SARGable Queries**
+- Full table scans → **Performance degrades as data grows**.
+- Increased CPU and I/O usage.
 
-1. **Non-SARGable Queries**
-   - Force full table/index scans
-   - Performance degrades with data growth
-   - Higher CPU and I/O usage
+✅ **SARGable Queries**
+- **Index seeks** improve query efficiency.
+- **Better scalability** for large datasets.
 
-2. **SARGable Queries**
-   - Can utilize index seeks
-   - Better scalability
-   - Reduced resource usage
+## Best Practices for SARGability
+### **Index Design**
+- Create indexes based on **common search patterns**.
+- Use **composite indexes** if filtering involves multiple columns.
 
-## Best Practices
+### **Query Writing**
+- Keep indexed columns **free of transformations**.
+- Rewrite queries to ensure they are **SARGable**.
 
-1. **Index Design**
-   - Create indexes based on common search patterns
-   - Consider column order in composite indexes
-
-2. **Query Writing**
-   - Keep indexed columns free of transformations
-   - Rewrite queries to maintain SARGability
-
-3. **Monitoring**
-   - Use execution plans to verify index usage
-   - Watch for implicit conversions
+### **Monitoring & Optimization**
+- Use **execution plans** to confirm index usage.
+- Watch out for **implicit conversions**.
 
 ## Summary
+Writing **SARGable queries** ensures optimal **index utilization** and **query performance**. By avoiding functions on indexed columns, using proper pattern matching, and following best practices, you can significantly improve database efficiency.
 
-Writing SARGable queries is crucial for optimal index utilization and query performance. By avoiding functions on indexed columns, using appropriate pattern matching, and following best practices, you can ensure your queries make effective use of indexes and maintain performance as data grows.
+## Looking Ahead
+In **Scenario #4**, we will cover **Indexing for High-Concurrency Workloads**, exploring strategies for optimizing databases in multi-user environments.
+
+Stay tuned! 🚀
