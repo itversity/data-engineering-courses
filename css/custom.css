@@ -1,0 +1,44 @@
+/* Enable scrolling within slides when content overflows */
+.reveal .slides section {
+  height: 100vh;
+  overflow-y: auto !important;
+  padding: 20px;
+}
+
+/* Add some padding at the bottom for better scrolling experience */
+.reveal .slides section > * {
+  margin-bottom: 20px;
+}
+
+/* Style the scrollbar for better visibility */
+.reveal .slides section::-webkit-scrollbar {
+  width: 10px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.reveal .slides section::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.reveal .slides section::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.reveal .slides section::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Ensure code blocks are properly displayed in scroll mode */
+.reveal pre {
+  max-height: none;
+  overflow-y: visible;
+  margin: 20px 0;
+}
+
+/* Add smooth scrolling */
+.reveal .slides section {
+  scroll-behavior: smooth;
+} 
