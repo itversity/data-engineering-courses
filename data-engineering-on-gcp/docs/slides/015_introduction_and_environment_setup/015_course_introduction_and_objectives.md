@@ -6,9 +6,9 @@ revealOptions:
   transition: slide
 ---
 
-# Welcome!
+## Welcome!
 
-## Data Engineering Essentials using GCP
+### Data Engineering Essentials using GCP
 
 - Instructor-led self-paced course
 - Focus on hands-on, real-world GCP skills
@@ -16,7 +16,7 @@ revealOptions:
 
 ---
 
-# Course Objectives
+## Course Objectives
 
 By the end of this course, you will:
 
@@ -29,7 +29,7 @@ By the end of this course, you will:
 
 ---
 
-# Target Audience
+## Target Audience
 
 This course is ideal for:
 
@@ -40,7 +40,7 @@ This course is ideal for:
 
 ---
 
-# GCP for Data Engineering
+## GCP for Data Engineering
 
 Why GCP?
 
@@ -51,7 +51,7 @@ Why GCP?
 
 ---
 
-# Tools We’ll Cover
+## Tools We’ll Cover
 
 ✅ **Cloud Storage**  
 ✅ **BigQuery**  
@@ -63,7 +63,7 @@ All wrapped up in a capstone project!
 
 ---
 
-# Learning Approach
+## Learning Approach
 
 - 💡 Conceptual Clarity
 - 👨‍💻 Hands-on Labs & Demos
@@ -72,7 +72,7 @@ All wrapped up in a capstone project!
 
 ---
 
-# What You Need
+## What You Need
 
 - Google Account
 - Basic Python and SQL knowledge
@@ -80,7 +80,7 @@ All wrapped up in a capstone project!
 
 ---
 
-# Let’s Begin!
+## Let’s Begin!
 
 🚀 Head to the next lesson:
 

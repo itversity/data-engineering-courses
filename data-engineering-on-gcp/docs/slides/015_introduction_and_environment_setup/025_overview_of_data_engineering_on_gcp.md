@@ -6,9 +6,9 @@ revealOptions:
   transition: slide
 ---
 
-# What is Data Engineering?
+## What is Data Engineering?
 
-## The foundation of modern data systems:
+### The foundation of modern data systems:
 - Ingest data from various sources
 - Store in scalable data lakes or warehouses
 - Process via batch/streaming pipelines
@@ -16,9 +16,9 @@ revealOptions:
 
 ---
 
-# Role of Cloud in Data Engineering
+## Role of Cloud in Data Engineering
 
-## Why cloud-native?
+### Why cloud-native?
 - Elastic scalability
 - Fully managed services
 - Pay-as-you-go pricing
@@ -26,7 +26,7 @@ revealOptions:
 
 ---
 
-# GCP's Place in the Ecosystem
+## GCP's Place in the Ecosystem
 
 Google Cloud offers:
 - Serverless data services
@@ -36,7 +36,7 @@ Google Cloud offers:
 
 ---
 
-# GCP Services for Data Engineering
+## GCP Services for Data Engineering
 
 | Service | Purpose |
 |----------------|------------------------------------|
@@ -48,7 +48,7 @@ Google Cloud offers:
 
 ---
 
-# Real-World Use Cases
+## Real-World Use Cases
 
 - Retail: Real-time recommendation systems
 - Healthcare: Secure patient data pipelines
@@ -57,7 +57,7 @@ Google Cloud offers:
 
 ---
 
-# Why Learn Data Engineering on GCP?
+## Why Learn Data Engineering on GCP?
 
 - High demand for cloud data engineers
 - GCP is widely used in startups and enterprises
@@ -66,7 +66,7 @@ Google Cloud offers:
 
 ---
 
-# What’s Next?
+## What’s Next?
 
 👉 Setting Up Your GCP Account and Billing
 

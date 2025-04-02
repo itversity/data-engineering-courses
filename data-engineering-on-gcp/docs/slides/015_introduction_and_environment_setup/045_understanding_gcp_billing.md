@@ -6,7 +6,7 @@ revealOptions:
   transition: slide
 ---
 
-# Why Understand GCP Billing?
+## Why Understand GCP Billing?
 
 - Cloud billing can be tricky if not monitored
 - Important to know what services cost money
@@ -14,7 +14,7 @@ revealOptions:
 
 ---
 
-# Accessing the Billing Console
+## Accessing the Billing Console
 
 - Go to: [console.cloud.google.com/billing](https://console.cloud.google.com/billing)
 - Select your **Billing Account**
@@ -26,7 +26,7 @@ revealOptions:
 
 ---
 
-# Free Tier vs Trial Credits
+## Free Tier vs Trial Credits
 
 | Type | What You Get |
 |---------------|----------------------------------------|
@@ -37,10 +37,10 @@ revealOptions:
 
 ---
 
-# Set Budget Alerts
+## Set Budget Alerts
 
 ```bash
-# Navigate: Billing → Budgets & alerts
+## Navigate: Billing → Budgets & alerts
 ```
 
 - Create a **new budget** for a project or billing account
@@ -51,7 +51,7 @@ revealOptions:
 
 ---
 
-# View Cost by Service
+## View Cost by Service
 
 - Go to: **Billing → Reports**
 - Filter by **Project** or **Service**
@@ -59,7 +59,7 @@ revealOptions:
 
 ---
 
-# Daily Cost Breakdown
+## Daily Cost Breakdown
 
 - Go to: **Billing → Cost Table**
 - Track cost trends daily
@@ -67,7 +67,7 @@ revealOptions:
 
 ---
 
-# Best Practices
+## Best Practices
 
 - 🔒 **Set IAM permissions** carefully — don’t allow everyone to create resources
 - 💳 **Monitor spending** weekly
@@ -76,7 +76,7 @@ revealOptions:
 
 ---
 
-# Summary
+## Summary
 
 ✅ You now know how to:  
 - Access and navigate billing console  
