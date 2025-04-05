@@ -1,0 +1,602 @@
+[
+  {
+    "customer_id": 6955,
+    "name": "Heather Sullivan",
+    "email": "kristy47@example.net",
+    "signup_date": "2023-08-04"
+  },
+  {
+    "customer_id": 4154,
+    "name": "Tanya Douglas",
+    "email": "bullockheidi@example.com",
+    "signup_date": "2022-04-14"
+  },
+  {
+    "customer_id": 9486,
+    "name": "Pamela Martin",
+    "email": "maryking@example.org",
+    "signup_date": "2024-11-15"
+  },
+  {
+    "customer_id": 7672,
+    "name": "Kayla Stone",
+    "email": "eoconnell@example.org",
+    "signup_date": "2022-04-06"
+  },
+  {
+    "customer_id": 7505,
+    "name": "Patricia Blake",
+    "email": "cmoore@example.net",
+    "signup_date": "2023-07-14"
+  },
+  {
+    "customer_id": 6089,
+    "name": "Thomas Lewis",
+    "email": "johnsonteresa@example.net",
+    "signup_date": "2024-12-18"
+  },
+  {
+    "customer_id": 1605,
+    "name": "Alison Benson",
+    "email": "petermartin@example.org",
+    "signup_date": "2024-12-16"
+  },
+  {
+    "customer_id": 2516,
+    "name": "Bryan Taylor",
+    "email": "colemanwillie@example.net",
+    "signup_date": "2020-07-17"
+  },
+  {
+    "customer_id": 1717,
+    "name": "Scott Thompson",
+    "email": "brian27@example.org",
+    "signup_date": "2024-03-11"
+  },
+  {
+    "customer_id": 3513,
+    "name": "Kelli Anderson",
+    "email": "danny06@example.com",
+    "signup_date": "2023-07-30"
+  },
+  {
+    "customer_id": 2966,
+    "name": "Brandon Miller MD",
+    "email": "jbuckley@example.com",
+    "signup_date": "2022-07-01"
+  },
+  {
+    "customer_id": 2476,
+    "name": "Michael Burke",
+    "email": "luke54@example.com",
+    "signup_date": "2021-12-30"
+  },
+  {
+    "customer_id": 7915,
+    "name": "Lori Lewis",
+    "email": "meadowsmary@example.com",
+    "signup_date": "2024-07-03"
+  },
+  {
+    "customer_id": 4522,
+    "name": "Michael Blevins",
+    "email": "nguyenmonica@example.com",
+    "signup_date": "2024-01-15"
+  },
+  {
+    "customer_id": 1370,
+    "name": "Patricia Medina",
+    "email": "gatesterry@example.com",
+    "signup_date": "2024-06-19"
+  },
+  {
+    "customer_id": 9626,
+    "name": "Vincent Dominguez",
+    "email": "sarahvargas@example.com",
+    "signup_date": "2021-08-20"
+  },
+  {
+    "customer_id": 3893,
+    "name": "Lori Howard",
+    "email": "sheila43@example.com",
+    "signup_date": "2022-04-29"
+  },
+  {
+    "customer_id": 5403,
+    "name": "Roy Lopez",
+    "email": "williamwillis@example.net",
+    "signup_date": "2024-08-28"
+  },
+  {
+    "customer_id": 2920,
+    "name": "Charles Martin",
+    "email": "bradshawthomas@example.net",
+    "signup_date": "2020-03-18"
+  },
+  {
+    "customer_id": 2124,
+    "name": "Crystal Pearson",
+    "email": "hughesryan@example.com",
+    "signup_date": "2022-02-20"
+  },
+  {
+    "customer_id": 2281,
+    "name": "Amy Coleman",
+    "email": "gabriel38@example.com",
+    "signup_date": "2020-12-24"
+  },
+  {
+    "customer_id": 5880,
+    "name": "Jessica Woods",
+    "email": "juarezpamela@example.net",
+    "signup_date": "2024-03-11"
+  },
+  {
+    "customer_id": 6528,
+    "name": "Paige Silva",
+    "email": "blakejessica@example.org",
+    "signup_date": "2020-08-13"
+  },
+  {
+    "customer_id": 7929,
+    "name": "Michael Mitchell",
+    "email": "scottbryant@example.org",
+    "signup_date": "2021-06-24"
+  },
+  {
+    "customer_id": 7098,
+    "name": "Jason Thornton",
+    "email": "williamsfernando@example.net",
+    "signup_date": "2024-03-17"
+  },
+  {
+    "customer_id": 8656,
+    "name": "Charles Lam",
+    "email": "tylerdaniel@example.com",
+    "signup_date": "2021-10-08"
+  },
+  {
+    "customer_id": 8366,
+    "name": "Amanda Schaefer",
+    "email": "roberto16@example.net",
+    "signup_date": "2023-01-19"
+  },
+  {
+    "customer_id": 9327,
+    "name": "Daniel Martinez",
+    "email": "vincent48@example.org",
+    "signup_date": "2022-05-22"
+  },
+  {
+    "customer_id": 5727,
+    "name": "Michael Scott",
+    "email": "gregory39@example.com",
+    "signup_date": "2020-07-12"
+  },
+  {
+    "customer_id": 9198,
+    "name": "Mrs. Jessica Prince",
+    "email": "molly05@example.net",
+    "signup_date": "2023-01-01"
+  },
+  {
+    "customer_id": 8421,
+    "name": "James Reynolds",
+    "email": "john80@example.net",
+    "signup_date": "2023-03-02"
+  },
+  {
+    "customer_id": 1350,
+    "name": "Rachel Larson",
+    "email": "fordrobert@example.net",
+    "signup_date": "2022-10-08"
+  },
+  {
+    "customer_id": 9892,
+    "name": "Max Sandoval",
+    "email": "snyderpeter@example.net",
+    "signup_date": "2023-06-24"
+  },
+  {
+    "customer_id": 9456,
+    "name": "Christina Gray",
+    "email": "watkinseugene@example.com",
+    "signup_date": "2025-01-14"
+  },
+  {
+    "customer_id": 3892,
+    "name": "Edward Collins",
+    "email": "brendawilliams@example.org",
+    "signup_date": "2021-10-30"
+  },
+  {
+    "customer_id": 3702,
+    "name": "Cesar Long",
+    "email": "erica39@example.org",
+    "signup_date": "2024-12-18"
+  },
+  {
+    "customer_id": 2296,
+    "name": "Cristina White",
+    "email": "jennifer52@example.net",
+    "signup_date": "2021-02-02"
+  },
+  {
+    "customer_id": 5727,
+    "name": "Stephanie Green",
+    "email": "karacarr@example.org",
+    "signup_date": "2022-02-16"
+  },
+  {
+    "customer_id": 2795,
+    "name": "Melissa Maynard",
+    "email": "terrencehoward@example.com",
+    "signup_date": "2022-08-07"
+  },
+  {
+    "customer_id": 7297,
+    "name": "Daniel Soto",
+    "email": "pamela44@example.com",
+    "signup_date": "2021-07-20"
+  },
+  {
+    "customer_id": 3528,
+    "name": "Richard Martin",
+    "email": "billytanner@example.net",
+    "signup_date": "2023-03-14"
+  },
+  {
+    "customer_id": 9307,
+    "name": "David Bell",
+    "email": "mbush@example.org",
+    "signup_date": "2022-05-10"
+  },
+  {
+    "customer_id": 2217,
+    "name": "Courtney Sheppard",
+    "email": "audreywhite@example.net",
+    "signup_date": "2022-10-05"
+  },
+  {
+    "customer_id": 1727,
+    "name": "Sandra Ward",
+    "email": "cmoore@example.com",
+    "signup_date": "2023-05-23"
+  },
+  {
+    "customer_id": 3382,
+    "name": "Tiffany Kelly",
+    "email": "ibowman@example.net",
+    "signup_date": "2023-07-22"
+  },
+  {
+    "customer_id": 3925,
+    "name": "Cory Jackson",
+    "email": "johnwoods@example.org",
+    "signup_date": "2022-09-17"
+  },
+  {
+    "customer_id": 4926,
+    "name": "Katherine Miranda DDS",
+    "email": "npetersen@example.org",
+    "signup_date": "2020-09-05"
+  },
+  {
+    "customer_id": 4506,
+    "name": "Katherine Day",
+    "email": "alexandriagross@example.net",
+    "signup_date": "2022-06-16"
+  },
+  {
+    "customer_id": 9802,
+    "name": "Tony Sawyer",
+    "email": "ylee@example.com",
+    "signup_date": "2024-02-16"
+  },
+  {
+    "customer_id": 3664,
+    "name": "Kelly Page",
+    "email": "swilliams@example.org",
+    "signup_date": "2021-06-12"
+  },
+  {
+    "customer_id": 6393,
+    "name": "Judith Gibson",
+    "email": "richard12@example.org",
+    "signup_date": "2024-05-18"
+  },
+  {
+    "customer_id": 4447,
+    "name": "Devin Davidson",
+    "email": "alexis60@example.com",
+    "signup_date": "2022-09-13"
+  },
+  {
+    "customer_id": 4867,
+    "name": "Stacey Rodriguez",
+    "email": "qmcdonald@example.com",
+    "signup_date": "2022-06-20"
+  },
+  {
+    "customer_id": 7379,
+    "name": "Alexandria Bailey",
+    "email": "evansamy@example.com",
+    "signup_date": "2021-06-11"
+  },
+  {
+    "customer_id": 8981,
+    "name": "Heather Edwards",
+    "email": "jacquelinecollins@example.org",
+    "signup_date": "2024-09-14"
+  },
+  {
+    "customer_id": 9243,
+    "name": "Louis Nolan",
+    "email": "xzamora@example.com",
+    "signup_date": "2024-07-06"
+  },
+  {
+    "customer_id": 6922,
+    "name": "Raymond Logan",
+    "email": "jamesvillarreal@example.com",
+    "signup_date": "2024-05-21"
+  },
+  {
+    "customer_id": 2658,
+    "name": "Aaron Tucker",
+    "email": "cheryl26@example.org",
+    "signup_date": "2022-11-07"
+  },
+  {
+    "customer_id": 5194,
+    "name": "Nicholas Becker",
+    "email": "ulee@example.net",
+    "signup_date": "2021-03-22"
+  },
+  {
+    "customer_id": 5806,
+    "name": "Jesse Johnson",
+    "email": "katherine57@example.org",
+    "signup_date": "2020-02-15"
+  },
+  {
+    "customer_id": 2842,
+    "name": "Kelly Freeman",
+    "email": "davisjeffery@example.org",
+    "signup_date": "2020-07-31"
+  },
+  {
+    "customer_id": 4557,
+    "name": "Eileen Smith",
+    "email": "charles06@example.org",
+    "signup_date": "2022-07-03"
+  },
+  {
+    "customer_id": 9697,
+    "name": "Candice Parks",
+    "email": "patriciamiller@example.org",
+    "signup_date": "2024-07-17"
+  },
+  {
+    "customer_id": 4448,
+    "name": "Melissa Curtis",
+    "email": "kimberlysoto@example.org",
+    "signup_date": "2023-07-04"
+  },
+  {
+    "customer_id": 7595,
+    "name": "Hunter Smith",
+    "email": "levi90@example.net",
+    "signup_date": "2023-03-23"
+  },
+  {
+    "customer_id": 7945,
+    "name": "James Ward",
+    "email": "derek30@example.net",
+    "signup_date": "2020-09-25"
+  },
+  {
+    "customer_id": 6049,
+    "name": "Calvin Browning",
+    "email": "jmcintyre@example.net",
+    "signup_date": "2021-08-26"
+  },
+  {
+    "customer_id": 9282,
+    "name": "Alexander Hodge",
+    "email": "nelsonandrew@example.com",
+    "signup_date": "2021-03-06"
+  },
+  {
+    "customer_id": 2446,
+    "name": "Carol Jones",
+    "email": "parksmichelle@example.net",
+    "signup_date": "2022-07-13"
+  },
+  {
+    "customer_id": 5958,
+    "name": "Andrew Lloyd",
+    "email": "donnanguyen@example.org",
+    "signup_date": "2020-01-27"
+  },
+  {
+    "customer_id": 4090,
+    "name": "John Nguyen",
+    "email": "jamiele@example.org",
+    "signup_date": "2020-08-03"
+  },
+  {
+    "customer_id": 5414,
+    "name": "Tanya Fuller",
+    "email": "bradley02@example.org",
+    "signup_date": "2021-05-31"
+  },
+  {
+    "customer_id": 6409,
+    "name": "Willie Murphy",
+    "email": "roberthart@example.com",
+    "signup_date": "2024-01-10"
+  },
+  {
+    "customer_id": 6235,
+    "name": "Matthew Marshall",
+    "email": "moorephilip@example.com",
+    "signup_date": "2022-08-01"
+  },
+  {
+    "customer_id": 5552,
+    "name": "Kevin Martin",
+    "email": "sarahdickerson@example.net",
+    "signup_date": "2024-07-17"
+  },
+  {
+    "customer_id": 2597,
+    "name": "Tasha Martin",
+    "email": "linda62@example.com",
+    "signup_date": "2021-07-13"
+  },
+  {
+    "customer_id": 7980,
+    "name": "William Taylor",
+    "email": "amyle@example.org",
+    "signup_date": "2024-04-23"
+  },
+  {
+    "customer_id": 1908,
+    "name": "Jeremy Lawson",
+    "email": "catherine85@example.org",
+    "signup_date": "2020-11-10"
+  },
+  {
+    "customer_id": 9322,
+    "name": "Kristin Fowler",
+    "email": "sgallagher@example.net",
+    "signup_date": "2021-05-17"
+  },
+  {
+    "customer_id": 6426,
+    "name": "Christopher Miller",
+    "email": "shellyweeks@example.net",
+    "signup_date": "2022-04-29"
+  },
+  {
+    "customer_id": 4659,
+    "name": "April Castro",
+    "email": "wongryan@example.net",
+    "signup_date": "2023-08-15"
+  },
+  {
+    "customer_id": 5669,
+    "name": "Susan Garcia",
+    "email": "thompsonjesse@example.org",
+    "signup_date": "2020-10-04"
+  },
+  {
+    "customer_id": 3855,
+    "name": "Christy Berry",
+    "email": "munozmonique@example.net",
+    "signup_date": "2024-03-18"
+  },
+  {
+    "customer_id": 8244,
+    "name": "Natalie Jackson",
+    "email": "qbaldwin@example.net",
+    "signup_date": "2020-11-08"
+  },
+  {
+    "customer_id": 7016,
+    "name": "Kim Williams",
+    "email": "vlutz@example.org",
+    "signup_date": "2021-02-22"
+  },
+  {
+    "customer_id": 8471,
+    "name": "Jennifer Carrillo",
+    "email": "angie20@example.org",
+    "signup_date": "2021-10-22"
+  },
+  {
+    "customer_id": 1760,
+    "name": "Natasha Williams",
+    "email": "wolferin@example.org",
+    "signup_date": "2022-08-26"
+  },
+  {
+    "customer_id": 2956,
+    "name": "Isabella Johnson",
+    "email": "eortiz@example.net",
+    "signup_date": "2021-05-05"
+  },
+  {
+    "customer_id": 8150,
+    "name": "Alexandra Mcdaniel",
+    "email": "cruiz@example.net",
+    "signup_date": "2021-05-17"
+  },
+  {
+    "customer_id": 1346,
+    "name": "Heather Mays",
+    "email": "lrussell@example.com",
+    "signup_date": "2024-09-30"
+  },
+  {
+    "customer_id": 8436,
+    "name": "Larry Gilbert",
+    "email": "zflores@example.org",
+    "signup_date": "2024-12-29"
+  },
+  {
+    "customer_id": 6295,
+    "name": "Tara Walker",
+    "email": "jthomas@example.net",
+    "signup_date": "2022-04-26"
+  },
+  {
+    "customer_id": 2325,
+    "name": "Andrea Green",
+    "email": "hwells@example.org",
+    "signup_date": "2022-04-11"
+  },
+  {
+    "customer_id": 9431,
+    "name": "Jack Barker",
+    "email": "tgardner@example.net",
+    "signup_date": "2021-04-01"
+  },
+  {
+    "customer_id": 4954,
+    "name": "William Rollins",
+    "email": "leahburke@example.net",
+    "signup_date": "2021-06-29"
+  },
+  {
+    "customer_id": 3557,
+    "name": "Bruce Rowe",
+    "email": "orussell@example.com",
+    "signup_date": "2021-07-08"
+  },
+  {
+    "customer_id": 7015,
+    "name": "Thomas Cooper",
+    "email": "lindsay61@example.com",
+    "signup_date": "2023-04-17"
+  },
+  {
+    "customer_id": 8024,
+    "name": "Alisha Powell",
+    "email": "mgonzalez@example.org",
+    "signup_date": "2021-02-15"
+  },
+  {
+    "customer_id": 3880,
+    "name": "Hannah Herrera",
+    "email": "julie80@example.com",
+    "signup_date": "2021-09-09"
+  },
+  {
+    "customer_id": 9632,
+    "name": "Alexis Escobar",
+    "email": "mmoore@example.net",
+    "signup_date": "2020-01-22"
+  }
+]

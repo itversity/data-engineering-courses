@@ -3,11 +3,23 @@
   height: 100vh;
   overflow-y: auto !important;
   padding: 20px;
+  text-align: left !important; /* Force left alignment for slide content */
 }
 
 /* Add some padding at the bottom for better scrolling experience */
 .reveal .slides section > * {
   margin-bottom: 20px;
+  text-align: left !important; /* Ensure all direct children are left-aligned */
+}
+
+/* Left align headings */
+.reveal h1, 
+.reveal h2, 
+.reveal h3, 
+.reveal h4, 
+.reveal h5, 
+.reveal h6 {
+  text-align: left !important;
 }
 
 /* Style the scrollbar for better visibility */
@@ -36,9 +48,27 @@
   max-height: none;
   overflow-y: visible;
   margin: 20px 0;
+  text-align: left !important; /* Ensure code blocks are left-aligned */
 }
 
 /* Add smooth scrolling */
 .reveal .slides section {
   scroll-behavior: smooth;
+}
+
+/* Left align lists */
+.reveal ul,
+.reveal ol {
+  text-align: left !important;
+  display: block;
 } 
+
+/* Custom bullet appearance for fragment divs */
+.custom-bullet::before {
+  content: "• ";
+  color: #00bcd4; /* Teal bullet color for visual appeal */
+  font-weight: bold;
+  display: inline-block;
+  width: 1.2em;
+  margin-left: -1.2em;
+}
