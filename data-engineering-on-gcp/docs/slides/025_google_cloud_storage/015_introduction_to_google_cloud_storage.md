@@ -8,11 +8,16 @@ revealOptions:
 
 ## Welcome to Module 2
 
-### Google Cloud Storage (GCS)
-
-- Foundation for scalable, secure data lakes
-- Supports all types of data: structured, semi-structured, unstructured
-- Powers modern analytics and ML workloads
+<div style="display: flex; align-items: center; gap: 30px;">
+  <img src="images/gcp_gooble_cloud_storage_logo.png" alt="Google Cloud Storage Logo" width="300"/>
+  <div>
+    <ul>
+      <li>Foundation for scalable, secure data lakes</li>
+      <li>Supports all types of data: structured, semi-structured, unstructured</li>
+      <li>Powers modern analytics and ML workloads</li>
+    </ul>
+  </div>
+</div>
 
 ---
 
@@ -36,6 +41,8 @@ revealOptions:
 ---
 
 ## Types of Data in GCS
+
+![Image Placeholder: Types of Data Table](images/de_types_of_data.png)
 
 | Type | Example Files |
 |------------------|-----------------------|
@@ -67,6 +74,8 @@ revealOptions:
 ---
 
 ## Real-World Example
+
+<img src="images/gcp_sales_pipeline.png" alt="Real-World Sales Pipeline Diagram" style="width: 60%;" />
 
 Imagine you're building a sales analytics pipeline:
 
