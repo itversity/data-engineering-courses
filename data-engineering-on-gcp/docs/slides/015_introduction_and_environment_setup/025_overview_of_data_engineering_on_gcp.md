@@ -8,6 +8,11 @@ revealOptions:
 
 ## What is Data Engineering?
 
+![Modern Data Engineering Lifecycle](images/modern_data_engineering_lifecycle.png)
+
+> Ingest → Store → Process → Analyze  
+> Each step transforms raw data into meaningful insights.
+
 ### The foundation of modern data systems:
 - Ingest data from various sources
 - Store in scalable data lakes or warehouses
@@ -37,6 +42,10 @@ Google Cloud offers:
 ---
 
 ## GCP Services for Data Engineering
+
+![GCP Services for Data Engineering](images/gcp_services_grid.png)
+
+> From raw storage to orchestration — here’s your toolset.
 
 | Service | Purpose |
 |----------------|------------------------------------|
@@ -69,4 +78,3 @@ Google Cloud offers:
 ## What’s Next?
 
 👉 Setting Up Your GCP Account and Billing
-

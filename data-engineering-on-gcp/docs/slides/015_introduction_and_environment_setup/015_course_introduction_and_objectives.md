@@ -80,9 +80,17 @@ All wrapped up in a capstone project!
 
 ---
 
+## Course Journey Map
+
+![Course Journey Map](images/gcp_de_essetials_course_journey_map.png)
+
+> From setup to capstone:  
+> `GCP Setup → Cloud Storage → BigQuery → Dataflow → Composer → Capstone`
+
+---
+
 ## Let’s Begin!
 
 🚀 Head to the next lesson:
 
 👉 "Overview of Data Engineering on GCP"
-
