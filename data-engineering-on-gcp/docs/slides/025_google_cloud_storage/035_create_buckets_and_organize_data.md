@@ -48,6 +48,8 @@ gcloud storage buckets create gs://$BUCKET_NAME \
 
 GCS doesn’t have folders, but you can **simulate them** using object prefixes.
 
+<img src="images/gcs_simulated_folder_structure.png" alt="Real-World Sales Pipeline Diagram" style="width: 60%;" />
+
 Example:
 ```bash
 echo "placeholder" | gcloud storage cp - \

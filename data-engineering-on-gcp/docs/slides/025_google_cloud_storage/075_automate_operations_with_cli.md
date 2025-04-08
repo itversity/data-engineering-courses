@@ -14,8 +14,8 @@ Let’s streamline real-world tasks using `gcloud` and `gsutil` for scale and au
 
 ## gcloud vs gsutil
 
-✅ `gcloud` is easy to use and script-friendly  
-✅ `gsutil` is powerful, fast, and supports advanced operations
+✅ `gcloud` is the general-purpose CLI for all Google Cloud services — including Storage  
+✅ `gsutil` is a specialized, high-performance tool for Cloud Storage operations
 
 Both tools are included with the Google Cloud SDK.
 

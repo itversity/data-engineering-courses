@@ -24,9 +24,14 @@ Frame this lecture as the "automation booster pack" for data engineers.
 
 > “Both tools are included with the SDK — let’s look at where each shines.”
 
-- `gcloud`: user-friendly, structured output, used throughout the course so far
-- `gsutil`: faster, supports parallelization, advanced features
-- Great time to introduce `-m`, `rsync`, and `setmeta`
+- `gcloud`: is the **general-purpose CLI for all Google Cloud services**, including GCS
+- `gsutil`: is a **specialized tool just for Cloud Storage**, designed for **performance and advanced file handling**
+
+Highlight that learners have already used `gcloud` to some extent, and now they’ll explore it further — along with the additional power of `gsutil`:
+
+- `-m` for parallelism
+- rsync for syncing buckets
+- setmeta for metadata control
 
 ---
 
