@@ -95,13 +95,18 @@ gcloud init
 
 ```bash
 ## Create a GCP project
-gcloud projects create gcp-data-engineering \
+gcloud auth application-default login
+
+PROJECT_NAME=gcp-data-engineering-$(date +%y%M%d%m)
+gcloud projects create ${PROJECT_NAME} \
   --name="GCP Data Engineering"
+
+## Project id (after create) cannot be more than 30 characters.
 ```
 
 ```bash
 ## Set it as the active project
-gcloud config set project gcp-data-engineering
+gcloud config set project ${PROJECT_NAME}
 ```
 
 ---
@@ -109,7 +114,7 @@ gcloud config set project gcp-data-engineering
 ## Step 8: Set Quota Project for ADC (Recommended)
 
 ```bash
-gcloud auth application-default set-quota-project gcp-data-engineering
+gcloud auth application-default set-quota-project ${PROJECT_NAME}
 ```
 
 Ensures Application Default Credentials (ADC) are associated correctly.
@@ -125,7 +130,7 @@ Ensures Application Default Credentials (ADC) are associated correctly.
 gcloud beta billing accounts list
 
 ## Link billing account
-gcloud beta billing projects link gcp-data-engineering \
+gcloud beta billing projects link ${PROJECT_NAME} \
   --billing-account=YOUR_BILLING_ACCOUNT_ID
 ```
 
