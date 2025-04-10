@@ -1,5 +1,5 @@
 ---
-title: "Lecture 4: Rename and Organize Uploaded Files"
+title: "Lecture 3: Rename and Organize Uploaded Files"
 author: "Data Engineering Essentials using GCP"
 theme: white
 revealOptions:
@@ -8,45 +8,38 @@ revealOptions:
 
 ## Rename and Organize Uploaded Files
 
-> Automatically clean and structure data lake file ingestion in GCS using Google Cloud Functions
+> Automatically clean and structure your data lake on file upload
 
 ---
 
 ## 🎯 What You’ll Learn
 
-✅ Rename files on upload using a timestamp  
-✅ Organize files in structured date-based folders  
-✅ Use `google-cloud-storage` with `requirements.txt`  
-✅ Deploy and test the function  
-✅ Clean up GCP resources
+✅ Rename files with a timestamp suffix  
+✅ Organize files into date-based folders  
+✅ Use `google-cloud-storage` for file manipulation  
+✅ Deploy and test a real automation use case
 
 ---
 
-## 🧭 Steps We'll Follow
+## Use Case Overview
 
-1. Define renaming logic  
-2. Write the function  
-3. Add `requirements.txt`  
-4. Create a new bucket  
-5. Deploy Cloud Function  
-6. Upload and test  
-7. View logs  
-8. Clean up
+We want to transform:
 
----
+```
+orders.csv
+```
 
-## Why Rename and Organize Files?
+Into:
 
-- Prevent name collisions  
-- Enable partitioned folder structure  
-- Prepare for downstream ETL  
-- Add clarity to data lake design
+```
+structured/YYYY-MM-DD/orders_YYYYMMDD.csv
+```
+
+Using the upload timestamp from the GCS `event`.
 
 ---
 
-## Folder Structure
-
-Create a new folder:
+## Folder Setup
 
 ```bash
 mkdir gcf-rename-organize
@@ -55,7 +48,7 @@ cd gcf-rename-organize
 
 ---
 
-## main.py – Cloud Function
+## main.py
 
 ```python
 from google.cloud import storage
@@ -75,8 +68,8 @@ def rename_and_organize(event, context):
         return
 
     base_name, ext = filename.rsplit('.', 1)
-
     created_date = event.get('timeCreated') or datetime.utcnow().isoformat()
+
     date_obj = datetime.strptime(created_date[:10], "%Y-%m-%d")
     today_str = date_obj.strftime('%Y-%m-%d')
     date_suffix = date_obj.strftime('%Y%m%d')
@@ -86,7 +79,6 @@ def rename_and_organize(event, context):
 
     client = storage.Client()
     bucket = client.bucket(bucket_name)
-
     source_blob = bucket.blob(original_file_name)
     destination_blob = bucket.blob(destination_path)
 
@@ -115,7 +107,7 @@ gsutil mb -l us-central1 gs://$BUCKET_NAME/
 
 ---
 
-## Step 2: Deploy the Cloud Function
+## Step 2: Deploy the Function
 
 ```bash
 gcloud functions deploy rename_and_organize \
@@ -127,30 +119,24 @@ gcloud functions deploy rename_and_organize \
   --region us-central1
 ```
 
-✅ Make sure `--source=.` is included to deploy with local `requirements.txt`
-
 ---
 
-## Step 3: Upload and Trigger
+## Step 3: Upload a Test File
 
 ```bash
-echo "data,123" > orders.csv
+echo "order_id,amount" > orders.csv
 gsutil cp orders.csv gs://$BUCKET_NAME/
 ```
 
 ---
 
-## Step 4: Verify File Structure
+## Step 4: Verify the Outcome
 
 ```bash
 gsutil ls -r gs://$BUCKET_NAME/structured/
 ```
 
-✅ You should see:
-
-```
-structured/YYYY-MM-DD/orders_YYYYMMDD.csv
-```
+✅ You should see the file renamed and moved into a structured path
 
 ---
 
@@ -161,9 +147,8 @@ gcloud functions logs read rename_and_organize --region us-central1
 ```
 
 ✅ Look for:
-
 ```
-Moved file: orders.csv → structured/2025-04-08/orders_20250408.csv
+Moved file: orders.csv → structured/YYYY-MM-DD/orders_YYYYMMDD.csv
 ```
 
 ---
@@ -175,15 +160,13 @@ gcloud functions delete rename_and_organize --region us-central1
 gsutil rm -r gs://$BUCKET_NAME/
 ```
 
-✅ Always clean up after testing
-
 ---
 
 ## ✅ Summary
 
-- You renamed and structured files on upload  
-- Used file metadata (`name`, `timeCreated`)  
-- Used `google-cloud-storage` via requirements.txt  
-- Set up a clean, automation-ready workflow
+- You renamed and organized uploaded files using timestamps  
+- Used metadata from the event object  
+- Employed GCS SDK for copying and deleting objects  
+- Set the foundation for file validation and logging
 
-👉 Next: Validate uploaded files for naming and type
+👉 Next: Validate file names and log metadata to Cloud Logging
